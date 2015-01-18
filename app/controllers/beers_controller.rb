@@ -1,5 +1,6 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate, only: [:destroy]
 
   # GET /beers
   # GET /beers.json
@@ -76,4 +77,14 @@ class BeersController < ApplicationController
     def beer_params
       params.require(:beer).permit(:name, :style, :brewery_id)
     end
+
+  private
+
+  def authenticate
+    admin_accounts = { "admin" => "secret", "pekka" => "beer", "arto" => "foobar", "matti" => "ittam"}
+
+    authenticate_or_request_with_http_basic do |username, password|
+      admin_accounts[username] == password
+    end
+  end
 end
