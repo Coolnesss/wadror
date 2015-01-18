@@ -1,0 +1,14 @@
+<h2>List of ratings</h2>
+<p> Number of ratings: <%= @ratings.count %> </p>
+
+<ul>
+ <% @ratings.each do |rating| %>
+   <li> <%= rating %> </li>
+ <% end %>
+</ul>
+
+<% if @beer.ratings.empty? %>
+ beer has not yet been rated!
+<% else %>
+ beer has some ratings
+<% end %>

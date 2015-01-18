@@ -1,3 +1,12 @@
 <h2>List of ratings</h2>
+<p> Number of ratings: <%= @ratings.count %> </p>
 
-<p>To be completed...</p>
+<%= link_to 'Create a new rating', new_rating_path %>
+
+
+<ul>
+ <% @ratings.each do |rating| %>
+   <li> <%= rating %> <%= link_to 'delete', rating_path(rating.id), method: :delete %> </li>
+ <% end %>
+</ul>
+
