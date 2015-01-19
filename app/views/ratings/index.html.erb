@@ -4,9 +4,8 @@
 <%= link_to 'Create a new rating', new_rating_path %>
 
 
-<ul>
+<ul class="list-group">
  <% @ratings.each do |rating| %>
-   <li> <%= rating %> <%= link_to 'delete', rating_path(rating.id), method: :delete, data: { confirm: 'Are you sure?' } %> </li>
+   <li class="list-group-item"> <%= rating %> <%= link_to 'delete', rating_path(rating.id), method: :delete, data: { confirm: 'Are you sure?' } %> </li>
  <% end %>
 </ul>
-
