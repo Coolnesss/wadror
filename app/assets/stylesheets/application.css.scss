@@ -31,9 +31,18 @@ h1 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
+  text-align: center!important;
+  font-weight: bold!important;
   color: #777;
+  font-family: "Ubuntu", Helvetica, Arial, sans-serif!important;
+}
+
+body, p {
+  font-family: "Ubuntu", Helvetica, Arial, sans-serif!important;
+}
+
+td, li {
+  font-family: "Comic Sans MS", cursive, sans-serif!important;
 }
 
 .center {
