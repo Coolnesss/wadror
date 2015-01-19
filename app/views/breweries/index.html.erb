@@ -25,5 +25,7 @@
 </table>
 
 <br>
-<%= button_to "List of beers", beers_path, :class => "btn btn-default", :method => :get %>
-<%= button_to "New Brewery", new_brewery_path, :class => "btn btn-success", :method => :get %>
+<tr>
+  <td><%= link_to "List of beers", beers_path, :class => "btn btn-default", :method => :get %></td>
+  <td><%= link_to "New Brewery", new_brewery_path, :class => "btn btn-success", :method => :get %></td>
+</tr>
