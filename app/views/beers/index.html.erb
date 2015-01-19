@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <p class="center"> Number of beers: <span class="badge"> <%= @beers.count %> </span> </p>
+    <p class="text-center"> Number of beers: <span class="badge"> <%= @beers.count %> </span> </p>
     <% @beers.each do |beer| %>
       <tr>
         <td><%= link_to beer.name, beer %></td>
