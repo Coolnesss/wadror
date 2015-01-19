@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Breweries</h1>
-
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
 <table class="table">
   <thead>
     <tr>
@@ -23,7 +24,8 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
+</div>
 <br>
 <tr>
   <td><%= link_to "List of beers", beers_path, :class => "btn btn-default", :method => :get %></td>

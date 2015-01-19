@@ -4,14 +4,21 @@
 <p>
 
 </p>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<table class="table">
 <ul class="list-group">
  <% @ratings.each do |rating| %>
    <li class="list-group-item", width: "300px">
      <%= rating.beer.name %>
-     <%= link_to 'Delete', rating_path(rating.id), :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
      <span class="badge"> <%= rating.score %></span>
+     <%= link_to 'Delete', rating_path(rating.id), :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+
    </li>
  <% end %>
 </ul>
+</table>
+</div>
+</div>
 
 <%= link_to 'Create a new rating', new_rating_path, :class => "btn btn-success", :method => :get %>
