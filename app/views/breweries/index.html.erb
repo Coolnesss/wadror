@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <p> Number of breweries: <%= @breweries.count %> </p>
+    <p class="center"> Number of breweries: <span class="badge"> <%= @breweries.count %> </span> </p>
     <% @breweries.each do |brewery| %>
       <tr>
         <td><%= link_to brewery.name, brewery %></td>

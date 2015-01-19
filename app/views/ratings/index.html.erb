@@ -1,11 +1,17 @@
-<h2>List of ratings</h2>
-<p> Number of ratings: <%= @ratings.count %> </p>
+<h1>List of ratings</h1>
+<p class="center"> Number of ratings: <span class="badge"> <%= @ratings.count %> </span> </p>
 
-<%= link_to 'Create a new rating', new_rating_path %>
+<p>
 
-
+</p>
 <ul class="list-group">
  <% @ratings.each do |rating| %>
-   <li class="list-group-item"> <%= rating %> <%= link_to 'delete', rating_path(rating.id), method: :delete, data: { confirm: 'Are you sure?' } %> </li>
+   <li class="list-group-item", width: "300px">
+     <%= rating.beer.name %>
+     <%= link_to 'Delete', rating_path(rating.id), :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+     <span class="badge"> <%= rating.score %></span>
+   </li>
  <% end %>
 </ul>
+
+<%= link_to 'Create a new rating', new_rating_path, :class => "btn btn-success", :method => :get %>
