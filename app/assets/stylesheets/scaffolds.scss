@@ -1,3 +1,13 @@
+h1 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center!important;
+  font-weight: bold!important;
+  color: #777;
+  font-family: "Ubuntu", Helvetica, Arial, sans-serif!important;
+}
+
 body {
   background-color: #fff;
   color: #333;
@@ -7,7 +17,7 @@ body {
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif!important;
   font-size: 13px;
   line-height: 18px;
 }
