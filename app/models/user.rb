@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :username,
                     uniqueness: true,
                     length: { in: 6..20 }
+  validates :password,  length: { minimum: 4 }
+  validates_format_of :password, :with => /[A-Z\d]+/
   has_many :ratings
   has_many :beers, through: :ratings
   has_many :memberships, dependent: :destroy

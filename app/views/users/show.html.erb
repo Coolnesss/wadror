@@ -22,8 +22,9 @@
         <li class="list-group-item", width: "300px">
           <%= link_to rating.beer.name, rating.beer %>
           <span class="badge"> <%= rating.score %></span>
+          <% if @user == current_user %>
           <%= link_to 'Delete', rating_path(rating.id), :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
-
+          <% end %>
         </li>
         <% end %>
       </ul>
@@ -31,6 +32,6 @@
   </div>
 </div>
 
-
+<td><%= link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
