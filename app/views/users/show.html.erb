@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</h1>
+
+<h4> This user has made <%= pluralize @user.ratings.count, 'rating', 'ratings' %>
+  with and average of <%= @user.average_rating %>
+</h4>
+<h4> Member of
+      <% @user.memberships.each do |membership| %>
+       <%= link_to membership.beer_club.name, membership.beer_club %>
+      <% end %>
+</h4>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <table class="table">
+      <ul class="list-group">
+        <% @user.ratings.each do |rating| %>
+        <li class="list-group-item", width: "300px">
+          <%= link_to rating.beer.name, rating.beer %>
+          <span class="badge"> <%= rating.score %></span>
+          <%= link_to 'Delete', rating_path(rating.id), :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        </li>
+        <% end %>
+      </ul>
+    </table>
+  </div>
+</div>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

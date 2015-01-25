@@ -18,6 +18,6 @@ b2.beers.create name:"X Porter", style:"Porter"
 b3.beers.create name:"Hefezeizen", style:"Weizen"
 b3.beers.create name:"Helles", style:"Lager"
 
-b1.beers.each{|x| x.ratings.create(score:(1 + rand(50)))}
-b2.beers.each{|x| x.ratings.create(score:(1 + rand(50)))}
-b3.beers.each{|x| x.ratings.create(score:(1 + rand(50)))}
+#b1.beers.each{|x| x.ratings.create(score:(1 + rand(50)))}
+#b2.beers.each{|x| x.ratings.create(score:(1 + rand(50)))}
+#b3.beers.each{|x| x.ratings.create(score:(1 + rand(50)))}

@@ -2,6 +2,7 @@ module RatingAverage
   extend ActiveSupport::Concern
 
   def average_rating
+    #todo if ratings.count == 0
     sum = 0
     ratingsToArray = self.ratings.to_a.map(&:score)
     ratingsToArray.each { |a| sum+=a }

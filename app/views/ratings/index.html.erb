@@ -10,9 +10,9 @@
 <ul class="list-group">
  <% @ratings.each do |rating| %>
    <li class="list-group-item", width: "300px">
-     <%= rating.beer.name %>
+     <%= link_to rating.beer.name, rating.beer %>
      <span class="badge"> <%= rating.score %></span>
-     <%= link_to 'Delete', rating_path(rating.id), :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+     <%= link_to rating.user.username, rating.user, :class => "btn btn-default btn-xs", method: :get %>
 
    </li>
  <% end %>
