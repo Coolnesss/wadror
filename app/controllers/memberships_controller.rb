@@ -28,8 +28,8 @@ class MembershipsController < ApplicationController
   def create
     @membership = Membership.new(membership_params)
     respond_to do |format|
+      current_user.memberships << @membership
       if @membership.save
-        current_user.memberships << @membership
         format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
         format.json { render :show, status: :created, location: @membership }
       else
