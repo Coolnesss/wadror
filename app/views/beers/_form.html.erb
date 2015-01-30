@@ -17,8 +17,9 @@
     <%= f.text_field :name %>
   </div>
 
-<p>Brewery: </p>
-  <%= f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :to_s) %>
+<p> Brewery: </p>
+  <%= f.select( :brewery_id,
+  options_from_collection_for_select(@breweries, :id, :to_s),  { :class => 'dropdown-menu' }) %>
   <p>Style: </p>
   <%= f.select :style , options_for_select(@styles, :style) %>
 
