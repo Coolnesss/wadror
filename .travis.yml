@@ -1,10 +1,16 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.0.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: TAtQCgHm7MsDqQRNTt9xXuaB6rkwWAy0GXvb0mmYD0f9hZze9/M2RWEDsPX38kk3ytAQd6jRTz6157nMM6EnP2y93L01E4fBOdue1MC/l9tEpIS/0YxReOMOO3qymZtw0S9ej5DI+T9XNYwB0RNj/MCU9RIDcFHX/eW9+MP4MBc=
+  run: "rake db:migrate"
+  app: changinbeer
+  on:
+    repo: Coolnesss/wadror
