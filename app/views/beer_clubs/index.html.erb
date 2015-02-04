@@ -20,8 +20,6 @@
         <tr>
           <td><%= link_to beer_club.name, beer_club %></td>
           <td><%= beer_club.founded %></td>
-          <td><%= button_to "Edit", edit_beer_club_path(beer_club), :class => "btn btn-warning btn-xs", :method => :get %></td>
-          <td><%= button_to "Delete", beer_club, :class => "btn btn-danger btn-xs", :method => :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
       </tbody>
@@ -30,5 +28,7 @@
 </div>
 <br>
 <div class="col-md-6 col-md-offset-3">
-  <%= link_to 'New Beer club', new_beer_club_path, :class => "btn btn-success" %>
+  <% if not current_user.nil? %>
+    <%= link_to 'New Beer club', new_beer_club_path, :class => "btn btn-success" %>
+  <% end %>
 </div>

@@ -32,6 +32,7 @@
 <% end %>
 </p>
 
-
-<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
+<%= button_to "Delete", @brewery, :class => "btn btn-danger btn-xs", :method => :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to "Edit", edit_brewery_path(@brewery), :class => "btn btn-warning btn-xs", :method => :get %>
+<br>
 <%= link_to 'Back', breweries_path %>

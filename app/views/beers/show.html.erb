@@ -21,6 +21,6 @@
          Beer has <%= pluralize @beer.ratings.count, 'rating', 'ratings' %>, average <%= @beer.average_rating %>
         <% end %>
 </p>
-
-<%= link_to 'Edit', edit_beer_path(@beer) %> |
+<%= button_to "Delete", @beer, :class => "btn btn-danger btn-xs", :method => :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to "Edit", edit_beer_path(@beer), :class => "btn btn-warning btn-xs", :method => :get %>
 <%= link_to 'Back', beers_path %>

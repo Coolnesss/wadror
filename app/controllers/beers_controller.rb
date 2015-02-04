@@ -1,8 +1,7 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
   before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
-  before_filter :authenticate, only: [:destroy]
-
+  before_action :ensure_that_signed_in, except: [:index, :show]
   # GET /beers
   # GET /beers.json
   def index
@@ -74,16 +73,6 @@ class BeersController < ApplicationController
     def beer_params
       params.require(:beer).permit(:name, :style, :brewery_id)
     end
-
-  private
-
-  def authenticate
-    admin_accounts = { "admin" => "secret", "pekka" => "beer", "arto" => "foobar", "matti" => "ittam"}
-
-    authenticate_or_request_with_http_basic do |username, password|
-      admin_accounts[username] == password
-    end
-  end
 
   def set_breweries_and_styles_for_template
     @breweries = Brewery.all

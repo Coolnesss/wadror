@@ -18,8 +18,6 @@
       <tr>
         <td><%= link_to brewery.name, brewery %></td>
         <td><%= brewery.year %></td>
-        <td><%= button_to "Edit", edit_brewery_path(brewery), :class => "btn btn-warning btn-xs", :method => :get %></td>
-        <td><%= button_to "Delete", brewery, :class => "btn btn-danger btn-xs", :method => :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,6 +29,8 @@
 <table>
   <div class="col-md-6 col-md-offset-3">
   <%= link_to "List of beers", beers_path, :class => "btn btn-default", :method => :get %>
-  <%= link_to "New Brewery", new_brewery_path, :class => "btn btn-success", :method => :get %>
+  <% if not current_user.nil? %>
+    <%= link_to "New Brewery", new_brewery_path, :class => "btn btn-success", :method => :get %>
+  <% end %>
 </div>
 </div>
