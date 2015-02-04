@@ -20,8 +20,7 @@ class RatingsController < ApplicationController
         render :new
       end
     else
-      @beers = Beer.all
-      render :new
+        redirect_to signin_path, notice:'you should be signed in'
     end
   end
 

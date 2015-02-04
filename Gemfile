@@ -37,6 +37,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  #tests
+  gem 'rspec-rails', '~> 3.0'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -56,6 +58,14 @@ end
 group :production do
    gem 'pg'
    gem 'rails_12factor'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov', require: false
+  gem 'rspec-its'
 end
 
 ruby '2.2.0'
