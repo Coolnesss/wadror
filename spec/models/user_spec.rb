@@ -74,6 +74,9 @@ describe User do
 
   describe "favourite style" do
     it "with multiple ratings has the most common" do
+
+      user = FactoryGirl.create(:user)
+
       beer1 = Beer.create name: "1", style:"Porter"
       beer2 = Beer.create name: "2", style:"Lager"
       beer3 = Beer.create name: "3", style:"Porter"
@@ -83,7 +86,7 @@ describe User do
       rating2 = FactoryGirl.create(:rating3, beer:beer2, user:user) #17
       rating3 = FactoryGirl.create(:rating4, beer:beer3, user:user) #30
       rating4 = FactoryGirl.create(:rating, beer:beer4, user:user) #10
-      expect(user.favorite_style).to eq(beer2.style)
+      expect(user.favourite_style).to eq(beer2.style)
     end
   end
 end

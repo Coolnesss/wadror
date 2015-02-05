@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
                     length: { in: 5..20 }
   validates :password,  length: { minimum: 4 }
   validates_format_of :password, :with => /(?=.*\d)(?=.*([A-Z]))/
+
   has_many :ratings
   has_many :beers, through: :ratings
   has_many :memberships, dependent: :destroy
@@ -20,16 +21,13 @@ class User < ActiveRecord::Base
 
   def favourite_style
     return nil if (ratings.empty?)
-    mode.beer.style
+    lista = beers.all.map(&:style)
+    lista.max_by{|x| get_average_for_style x}
   end
 
-  def get_styles
+  def get_average_for_style style
     return nil if (ratings.empty?)
-    list = Array.new
-    ratings.each{|x| list << (x.beer.style)}
-  end
-
-  def mode
-    get_styles.group_by{|i| i}.max{|x,y| x[1].length <=> y[1].length}[0]
+    ratings_for_style = ratings.select{|x| x.beer.style == style}
+    ratings_for_style.map(&:score).inject{ |sum, el| sum + el }.to_f / ratings_for_style.size
   end
 end

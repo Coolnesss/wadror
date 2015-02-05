@@ -9,6 +9,14 @@ FactoryGirl.define do
     score 10
     user
   end
+  factory :rating3, class: Rating do
+    score 17
+    user
+  end
+  factory :rating4, class: Rating do
+    score 30
+    user
+  end
 
   factory :rating2, class: Rating do
     score 20
