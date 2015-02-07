@@ -89,6 +89,28 @@ describe User do
       expect(user.favourite_style).to eq(beer2.style)
     end
   end
+
+  describe "favourite brewery" do
+    it "with multiple breweries and ratings works" do
+
+      user = FactoryGirl.create(:user)
+
+      brewery1 = FactoryGirl.create(:brewery, name:"betterOne")
+      brewery2 = FactoryGirl.create(:brewery, name:"worseOne")
+
+      beer1 = Beer.create name: "1", style:"Porter", brewery:brewery2
+      beer2 = Beer.create name: "2", style:"Lager", brewery:brewery1
+      beer3 = Beer.create name: "3", style:"Porter", brewery:brewery1
+      beer4 = Beer.create name: "4", style:"Porter", brewery:brewery2
+
+      rating = FactoryGirl.create(:rating, beer:beer1, user:user) #10
+      rating2 = FactoryGirl.create(:rating3, beer:beer2, user:user) #17
+      rating3 = FactoryGirl.create(:rating4, beer:beer3, user:user) #30
+      rating4 = FactoryGirl.create(:rating, beer:beer4, user:user) #10
+
+      expect(user.favourite_brewery).to eq(brewery1)
+    end
+  end
 end
 
 def create_beers_with_ratings(*scores, user)
