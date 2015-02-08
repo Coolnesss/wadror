@@ -4,7 +4,7 @@ describe User do
   it "has the username set correctly" do
     user = User.new username:"Pekka"
 
-    user.username.should == "Pekka"
+    expect(user.username).to eq("Pekka")
   end
 
   it "cannot save password with small length" do
@@ -51,7 +51,7 @@ describe User do
     let(:user){FactoryGirl.create(:user) }
 
     it "has method for determining one" do
-      user.should respond_to :favorite_beer
+      expect(user).to respond_to :favorite_beer
     end
 
     it "without ratings does not have one" do
