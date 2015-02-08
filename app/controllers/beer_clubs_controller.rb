@@ -11,10 +11,10 @@ class BeerClubsController < ApplicationController
   # GET /beer_clubs/1
   # GET /beer_clubs/1.json
   def show
-    if current_user.memberships.select{|z| z.beer_club == @beer_club}.nil?
+    if not current_user.nil? and current_user.memberships.select{|z| z.beer_club == @beer_club}.empty?
       @membership = Membership.new
       @membership.beer_club = @beer_club
-    else
+    elsif not current_user.nil?
       @membership = current_user.memberships.select{|z| z.beer_club == @beer_club}.first
     end
   end
