@@ -1,7 +1,7 @@
 class BeerClubsController < ApplicationController
   before_action :set_beer_club, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
-  
+
   # GET /beer_clubs
   # GET /beer_clubs.json
   def index
@@ -11,6 +11,12 @@ class BeerClubsController < ApplicationController
   # GET /beer_clubs/1
   # GET /beer_clubs/1.json
   def show
+    if current_user.memberships.select{|z| z.beer_club == @beer_club}.nil?
+      @membership = Membership.new
+      @membership.beer_club = @beer_club
+    else
+      @membership = current_user.memberships.select{|z| z.beer_club == @beer_club}.first
+    end
   end
 
   # GET /beer_clubs/new

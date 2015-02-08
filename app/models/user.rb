@@ -14,6 +14,12 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
 
+  def belongs_to_club? beer_club
+    list = BeerClub.all.select{ |x| not x.users.find_by username:self.username}
+    not list.include? beer_club
+  end
+
+
   def favourite_brewery
     lista = beers.all.map(&:brewery)
     lista.max_by{|x| get_average_for_brewery x}

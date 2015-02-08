@@ -4,6 +4,11 @@ class BeermappingApi
     Rails.cache.fetch(city, expires_in: 1.week) { fetch_places_in(city) }
   end
 
+  def self.get_bar_by_id_and_city(city, id)
+    get_array = self.places_in(city)
+    get_array.select{|x| x.id == id}.first
+  end
+
   private
 
   def self.fetch_places_in(city)
@@ -24,5 +29,10 @@ class BeermappingApi
   def self.key
     raise "APIKEY env variable not defined" if ENV['APIKEY'].nil?
     ENV['APIKEY']
+  end
+
+  def self.gmaps_key
+    raise "GMAPSAPIKEY env variable not defined" if ENV['GMAPSAPIKEY'].nil?
+    ENV['GMAPSAPIKEY']
   end
 end

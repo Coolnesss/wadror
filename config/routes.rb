@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :users
   resources :beers
   resources :breweries
+  resources :places, only:[:index, :show]
+  # mikä generoi samat polut kuin seuraavat kaksi
+  # get 'places', to:'places#index'
+  # get 'places/:id', to:'places#show'
 
   resource :session, only: [:new, :create, :delete]
   root 'breweries#index'
@@ -13,11 +17,6 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy'
   get 'places', to: 'places#index'
   post 'places', to:'places#search'
- # get 'ratings', to: 'ratings#index'
-
- # get 'ratings/new', to:'ratings#new'
-
- # post 'ratings', to: 'ratings#create'
 
   resources :ratings, only: [:index, :new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.

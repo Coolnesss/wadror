@@ -13,7 +13,7 @@
 </div>
 <% end %>
   <ul class="dropdown">
-    <li><%= f.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s), class: "dropdown" %></li>
+    <li><%= f.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s, selected: @rating.beer_id), class: "dropdown" %></li>
     <li>score: <%= f.number_field :score %></li>
     <li><%= f.submit %></li>
   </ul>
