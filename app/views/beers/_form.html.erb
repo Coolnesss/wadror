@@ -21,8 +21,7 @@
   <%= f.select( :brewery_id,
   options_from_collection_for_select(@breweries, :id, :to_s),  { :class => 'dropdown-menu' }) %>
   <p>Style: </p>
-  <%= f.select :style , options_for_select(@styles, :style) %>
-
+  <%= f.select :style_id, options_from_collection_for_select(@styles, :id, :name) %>
   <div class="actions">
     <%= f.submit %>
   </div>
