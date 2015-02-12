@@ -76,17 +76,19 @@ describe User do
     it "with multiple ratings has the most common" do
 
       user = FactoryGirl.create(:user)
+      style = Style.create(name:"Lager")
+      style2 = Style.create(name:"Porter")
 
-      beer1 = Beer.create name: "1", style:"Porter"
-      beer2 = Beer.create name: "2", style:"Lager"
-      beer3 = Beer.create name: "3", style:"Porter"
-      beer4 = Beer.create name: "4", style:"Porter"
+      beer1 = Beer.create name: "1", style:style2
+      beer2 = Beer.create name: "2", style:style
+      beer3 = Beer.create name: "3", style:style2
+      beer4 = Beer.create name: "4", style:style2
       # pitäisi tulla lager
       rating = FactoryGirl.create(:rating, beer:beer1, user:user) #10
       rating2 = FactoryGirl.create(:rating3, beer:beer2, user:user) #17
       rating3 = FactoryGirl.create(:rating4, beer:beer3, user:user) #30
       rating4 = FactoryGirl.create(:rating, beer:beer4, user:user) #10
-      expect(user.favourite_style).to eq(beer2.style)
+      expect(user.favourite_style.name).to eq(beer2.style.name)
     end
   end
 
@@ -98,10 +100,10 @@ describe User do
       brewery1 = FactoryGirl.create(:brewery, name:"betterOne")
       brewery2 = FactoryGirl.create(:brewery, name:"worseOne")
 
-      beer1 = Beer.create name: "1", style:"Porter", brewery:brewery2
-      beer2 = Beer.create name: "2", style:"Lager", brewery:brewery1
-      beer3 = Beer.create name: "3", style:"Porter", brewery:brewery1
-      beer4 = Beer.create name: "4", style:"Porter", brewery:brewery2
+      beer1 = Beer.create name: "1", style:Style.create(name:"Porter"), brewery:brewery2
+      beer2 = Beer.create name: "2", style:Style.create(name:"Lager"), brewery:brewery1
+      beer3 = Beer.create name: "3", style:Style.create(name:"Porter"), brewery:brewery1
+      beer4 = Beer.create name: "4", style:Style.create(name:"Porter"), brewery:brewery2
 
       rating = FactoryGirl.create(:rating, beer:beer1, user:user) #10
       rating2 = FactoryGirl.create(:rating3, beer:beer2, user:user) #17

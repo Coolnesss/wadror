@@ -30,7 +30,7 @@ FactoryGirl.define do
   factory :beer do
     name "anonymous"
     brewery
-    style "Lager"
+    style Style.create(name:"Lager")
   end
 
 
