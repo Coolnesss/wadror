@@ -16,11 +16,6 @@
         null,
         null
       ],
-      "/home/chang/ratebeer/app/models/style.rb": [
-        1,
-        1,
-        null
-      ],
       "/home/chang/ratebeer/app/helpers/application_helper.rb": [
         1,
         null
@@ -470,6 +465,11 @@
         null,
         null
       ],
+      "/home/chang/ratebeer/app/models/style.rb": [
+        1,
+        1,
+        null
+      ],
       "/home/chang/ratebeer/app/controllers/breweries_controller.rb": [
         1,
         1,
@@ -656,6 +656,6 @@
         null
       ]
     },
-    "timestamp": 1423748944
+    "timestamp": 1423840597
   }
 }
