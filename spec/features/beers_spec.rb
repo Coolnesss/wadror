@@ -8,11 +8,9 @@ describe "Beer" do
   end
 
   it "can add beer with valid name" do
+    FactoryGirl.create(:style)
     visit new_beer_path
-
-
     fill_in('beer_name', with:'Amazing')
-
 
     expect{
       click_button "Create Beer"
