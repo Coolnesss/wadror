@@ -8,7 +8,10 @@
   <i>Established in
   <%= @brewery.year %> </i>
   <% if not @brewery.site_link.nil? %>
-  You can find this brewery's website <%= link_to 'here', @brewery.site_link %>
+    You can find this brewery's website <%= link_to 'here', @brewery.site_link %>
+  <% end %>
+  <% if not @brewery.active  %>
+    <span class="label label-info">retired</span>
   <% end %>
 </p>
 

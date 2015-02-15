@@ -5,10 +5,10 @@
   <%= @user.username %>
 </h1>
 
-<h4> This user has made <%= pluralize @user.ratings.count, 'rating', 'ratings' %>
+<h4 class="text-center"> This user has made <%= pluralize @user.ratings.count, 'rating', 'ratings' %>
   with and average of <%= @user.average_rating %>
 </h4>
-<h4> Member of
+<h4 class="text-center"> Member of
       <% @user.memberships.each do |membership| %>
        <%= link_to membership.beer_club.name, membership.beer_club %>
       <% end %>

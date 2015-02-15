@@ -7,6 +7,9 @@ class Brewery < ActiveRecord::Base
   validates :year, numericality: { only_integer: true,
     greater_than_or_equal_to: 1042 }
 
+    scope :active, -> { where active:true }
+    scope :retired, -> { where active:[nil,false] }
+
   include RatingAverage
 
   def not_in_future

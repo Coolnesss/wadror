@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="col-md-6 col-md-offset-3">
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -23,7 +23,13 @@
     <%= f.label :site_link %><br>
     <%= f.text_field :site_link %>
   </div>
+  <div class="field">
+    <%= f.label :active %>
+    <%= f.check_box :active %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

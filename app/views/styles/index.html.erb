@@ -22,9 +22,10 @@
     <% end %>
   </tbody>
 </table>
+<% if not current_user.nil? %>
+<%= button_to 'New Style', new_style_path, :class => "btn btn-success", :method => :get %>
+<% end %>
+
 </div>
 </div>
 <br>
-<% if not current_user.nil? %>
-  <%= link_to 'New Style', new_style_path %>
-<% end %>
