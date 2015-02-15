@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   # get 'places', to:'places#index'
   # get 'places/:id', to:'places#show'
 
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
+
   resource :session, only: [:new, :create, :delete]
   root 'breweries#index'
   get 'kaikki_bisset', to: 'beers#index'

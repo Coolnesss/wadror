@@ -1,17 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h1>
   <strong>Name:</strong>
   <%= @style.name %>
-</p>
+</h1>
 
-<p>
+<h2>
   <strong>Description:</strong>
   <%= @style.description %>
-</p>
+</h2>
+<%= edit_and_destroy_buttons(@style) %>
 
-
-<%= button_to "Edit", edit_style_path(@style), :class => "btn btn-warning btn-xs", :method => :get %>
-<%= button_to "Delete", @style, :class => "btn btn-danger btn-xs", :method => :delete, data: { confirm: 'Are you sure?' } %>
 <br>
 <%= link_to 'Back', styles_path %>

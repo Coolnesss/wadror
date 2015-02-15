@@ -5,8 +5,8 @@
   <%= @user.username %>
 </h1>
 
-<h4 class="text-center"> This user has made <%= pluralize @user.ratings.count, 'rating', 'ratings' %>
-  with and average of <%= @user.average_rating %>
+<h4 class="text-center"> This user has made <span class="badge"><%= pluralize @user.ratings.count, 'rating', 'ratings' %></span>
+  with an average of <span class="badge"><%= @user.average_rating %></span>
 </h4>
 <h4 class="text-center"> Member of
       <% @user.memberships.each do |membership| %>
@@ -31,7 +31,7 @@
     </table>
   </div>
 </div>
-
-<td><%= link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<div class="col-md-6 col-md-offset-3">
+  <%= edit_and_destroy_buttons(@user) %>
+</div>
 <%= link_to 'Back', users_path %>

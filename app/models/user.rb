@@ -14,11 +14,15 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :beer_clubs, through: :memberships
 
+  def self.most_ratings limit
+    User.all.sort_by{|u| -(u.ratings.count||0) }.take(limit)
+  end
+
+
   def belongs_to_club? beer_club
     list = BeerClub.all.select{ |x| not x.users.find_by username:self.username}
     not list.include? beer_club
   end
-
 
   def favourite_brewery
     lista = beers.all.map(&:brewery)

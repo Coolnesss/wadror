@@ -10,4 +10,8 @@ class Rating < ActiveRecord::Base
     "#{self.beer.name}" + " " + "#{self.score}"
   end
 
+  def self.most_recent(limit)
+    Rating.all.order("created_at desc").limit(limit)
+  end
+
 end

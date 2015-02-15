@@ -50,8 +50,8 @@
   <% end %>
 
 <% end %>
-  <%= button_to "Delete this club", @beer_club, :class => "btn btn-danger btn-xs", :method => :delete, data: { confirm: 'Are you sure?' } %>
-  <%= button_to "Edit", edit_beer_club_path(@beer_club), :method => :get, :class => "btn btn-warning btn-xs" %>
-  <%= link_to 'Back', beer_clubs_path %>
+<br>
+<%= edit_and_destroy_buttons(@beer_club) %>
+<%= link_to 'Back', beer_clubs_path %>
 </div>
 </div>

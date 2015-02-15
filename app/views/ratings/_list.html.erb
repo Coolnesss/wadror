@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Average</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% best.each do |best| %>
+        <tr>
+          <td><%= link_to best.name, best %></td>
+          <td><%= round best.average_rating %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
