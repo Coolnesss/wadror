@@ -29,9 +29,21 @@
         <% User.most_ratings(3).each do |user| %>
         <tr>
           <td><%= link_to user.username, user %></td>
-          <td><%= link_to user.favorite_beer.name, user.favorite_beer%></td>
-          <td><%= link_to user.favourite_brewery.name, user.favourite_brewery %></td>
-          <td><%= link_to user.favourite_style.name, user.favourite_style %></td>
+          <% if not user.favorite_beer.nil? %>
+            <td><%= link_to user.favorite_beer.name, user.favorite_beer%></td>
+          <% else %>
+            <td>none</td>
+          <% end %>
+          <% if not user.favourite_brewery.nil? %>
+            <td><%= link_to user.favourite_brewery.name, user.favourite_brewery %></td>
+          <% else %>
+            <td>none</td>
+          <% end %>
+          <% if not user.favourite_style.nil? %>
+            <td><%= link_to user.favourite_style.name, user.favourite_style %></td>
+          <% else %>
+            <td>none</td>
+          <% end %>
           <td><%= user.ratings.count %></td>
         </tr>
         <% end %>

@@ -17,7 +17,7 @@
         <p class="text-center"> Number of users: <span class="badge"> <%= @users.count %> </span> </p>
         <% @users.each do |user| %>
         <tr>
-          <td><%= link_to user.username, user %></td>
+          <td><%= link_to user.username, user %> <% if user.banned? %><span class="badge">Banned</span><% end %></td>
           <td><span class="badge"> <%= user.ratings.count %> </span> </td>
         </tr>
         <% end %>

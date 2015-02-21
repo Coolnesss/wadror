@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by username: params[:username]
+    if user && user.banned?
+      redirect_to :back, notice: "You are banned. Get lost!"
+      return
+    end
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to user_path(user), notice: "Welcome back!"

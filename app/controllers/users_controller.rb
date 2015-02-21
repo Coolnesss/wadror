@@ -21,6 +21,12 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def ban
+    user = User.find_by id:params[:id]
+    user.update_attribute :banned, (not user.banned)
+    redirect_to :back, notice: "User's banned status changed to: #{user.banned?}"    
+  end
+
   # POST /users
   # POST /users.json
   def create

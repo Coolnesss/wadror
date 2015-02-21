@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
-
 <h1>
   <strong>Username:</strong>
   <%= @user.username %>
+  <% if current_user and current_user.admin? %>
+    <% if @user.banned %>
+      <%= button_to "Unban this user", ban_user_path(@user), :class => "btn btn-primary btn-xs", method: :post %>
+    <% else %>
+      <%= button_to "Ban this user", ban_user_path(@user), :class => "btn btn-danger btn-xs", method: :post %>
+    <% end %>
+  <% end %>
 </h1>
+<% if @user.banned? and (not current_user or not current_user.admin?) %>
+  <h2 class="text-center"><strong>Banned</strong></h2>
+<% end %>
 
 <h4 class="text-center"> This user has made <span class="badge"><%= pluralize @user.ratings.count, 'rating', 'ratings' %></span>
   with an average of <span class="badge"><%= @user.average_rating %></span>
@@ -31,7 +40,10 @@
     </table>
   </div>
 </div>
+
 <div class="col-md-6 col-md-offset-3">
   <%= edit_and_destroy_buttons(@user) %>
+
+
 </div>
 <%= link_to 'Back', users_path %>

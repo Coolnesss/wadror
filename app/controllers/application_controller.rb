@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
   def ensure_that_signed_in
     redirect_to signin_path, notice:'you should be signed in' if current_user.nil?
   end
+
+  def ensure_that_admin
+    redirect_to signin_path, notice:'you should be an admin to do this' if not current_user.admin?
+  end
+
+  def freeze_account user
+    user.update_attribute(:admin, true) if current_user.admin?
+  end
+
 end
