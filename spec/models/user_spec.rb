@@ -88,7 +88,7 @@ describe User do
       rating2 = FactoryGirl.create(:rating3, beer:beer2, user:user) #17
       rating3 = FactoryGirl.create(:rating4, beer:beer3, user:user) #30
       rating4 = FactoryGirl.create(:rating, beer:beer4, user:user) #10
-      expect(user.favourite_style.name).to eq(beer2.style.name)
+      expect(user.favorite_style.name).to eq(beer2.style.name)
     end
   end
 
@@ -110,7 +110,7 @@ describe User do
       rating3 = FactoryGirl.create(:rating4, beer:beer3, user:user) #30
       rating4 = FactoryGirl.create(:rating, beer:beer4, user:user) #10
 
-      expect(user.favourite_brewery).to eq(brewery1)
+      expect(user.favorite_brewery).to eq(brewery1)
     end
   end
 end

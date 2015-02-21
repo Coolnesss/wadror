@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-02-21T15:27:04+02:00">2015-02-21T15:27:04+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-02-21T15:39:18+02:00">2015-02-21T15:39:18+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">71.71%</span></span>
+    (<span class="covered_percent"><span class="red">71.19%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.74
+         2.48
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>24</b> files in total.
-    <b>350</b> relevant lines. 
-    <span class="green"><b>251</b> lines covered</span> and
-    <span class="red"><b>99</b> lines missed </span>
+    <b>354</b> relevant lines. 
+    <span class="green"><b>252</b> lines covered</span> and
+    <span class="red"><b>102</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -272,12 +272,12 @@
       
       <tr>
         <td class="strong"><a href="#037389907cbe08cc7e531a354a58b0be96420c05" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
-        <td class="green strong">93.94 %</td>
-        <td>54</td>
-        <td>33</td>
-        <td>31</td>
-        <td>2</td>
-        <td>8.3</td>
+        <td class="yellow strong">86.49 %</td>
+        <td>69</td>
+        <td>37</td>
+        <td>32</td>
+        <td>5</td>
+        <td>5.2</td>
       </tr>
       
       <tr>
@@ -416,20 +416,20 @@
           <div class="file_list_container" id="Models">
   <h2>
     <span class="group_name">Models</span>
-    (<span class="covered_percent"><span class="yellow">88.68%</span></span>
+    (<span class="covered_percent"><span class="yellow">86.36%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.5
+         3.59
        </span>
     </span> hits/line)
   </h2>
   <a name="Models"></a>
   <div>
     <b>8</b> files in total.
-    <b>106</b> relevant lines. 
-    <span class="green"><b>94</b> lines covered</span> and
-    <span class="red"><b>12</b> lines missed </span>
+    <b>110</b> relevant lines. 
+    <span class="green"><b>95</b> lines covered</span> and
+    <span class="red"><b>15</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -517,12 +517,12 @@
       
       <tr>
         <td class="strong"><a href="#037389907cbe08cc7e531a354a58b0be96420c05" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
-        <td class="green strong">93.94 %</td>
-        <td>54</td>
-        <td>33</td>
-        <td>31</td>
-        <td>2</td>
-        <td>8.3</td>
+        <td class="yellow strong">86.49 %</td>
+        <td>69</td>
+        <td>37</td>
+        <td>32</td>
+        <td>5</td>
+        <td>5.2</td>
       </tr>
       
     </tbody>
@@ -4694,11 +4694,11 @@
         <div class="source_table" id="037389907cbe08cc7e531a354a58b0be96420c05">
   <div class="header">
     <h3>app/models/user.rb</h3>
-    <h4><span class="green">93.94 %</span> covered</h4>
+    <h4><span class="yellow">86.49 %</span> covered</h4>
     <div>
-      <b>33</b> relevant lines. 
-      <span class="green"><b>31</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <b>37</b> relevant lines. 
+      <span class="green"><b>32</b> lines covered</span> and
+      <span class="red"><b>5</b> lines missed.</span>
     </div>
   </div>
   
@@ -4864,19 +4864,19 @@
         <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">  def favourite_brewery</code>
+          <code class="ruby">  def favorite_beer</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="28">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="28">
+          <span class="hits">6</span>
           
-          <code class="ruby">    lista = beers.all.map(&amp;:brewery)</code>
+          <code class="ruby">    return nil if ratings.empty?</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="29">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="5" data-linenumber="29">
+          <span class="hits">5</span>
           
-          <code class="ruby">    lista.max_by{|x| get_average_for_brewery x}</code>
+          <code class="ruby">    ratings.order(score: :desc).limit(1).first.beer</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
@@ -4894,136 +4894,226 @@
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">  def favorite_beer</code>
+          <code class="ruby">  def rating_of(category, item)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="33">
-          <span class="hits">6</span>
+        <li class="missed" data-hits="0" data-linenumber="33">
           
-          <code class="ruby">    return nil if ratings.empty?</code>
+          
+          <code class="ruby">    ratings_of_item = ratings.select do |r|</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="34">
-          <span class="hits">5</span>
+        <li class="missed" data-hits="0" data-linenumber="34">
           
-          <code class="ruby">    ratings.order(score: :desc).limit(1).first.beer</code>
+          
+          <code class="ruby">      r.beer.send(category) == item</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="36">
+          
+          
+          <code class="ruby">    ratings_of_item.map(&amp;:score).sum / ratings_of_item.count</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="39">
           <span class="hits">1</span>
           
-          <code class="ruby">  def favourite_style</code>
+          <code class="ruby">  def favorite(category)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="38">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="8" data-linenumber="40">
+          <span class="hits">8</span>
           
-          <code class="ruby">    return nil if (ratings.empty?)</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="39">
-          <span class="hits">4</span>
-          
-          <code class="ruby">    lista = beers.all.map(&amp;:style)</code>
-        </li>
-      
-        <li class="covered" data-hits="17" data-linenumber="40">
-          <span class="hits">17</span>
-          
-          <code class="ruby">    lista.max_by{|x| get_average_for_style x}</code>
+          <code class="ruby">    return nil if ratings.empty?</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="8" data-linenumber="42">
+          <span class="hits">8</span>
           
-          <code class="ruby">  def get_average_for_brewery brewery</code>
+          <code class="ruby">    category_ratings = rated(category).inject([]) do |set, item|</code>
         </li>
       
-        <li class="covered" data-hits="13" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">      set &lt;&lt; {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">        item: item,</code>
+        </li>
+      
+        <li class="covered" data-hits="13" data-linenumber="45">
           <span class="hits">13</span>
           
-          <code class="ruby">    return nil if (ratings.empty?)</code>
+          <code class="ruby">        rating: rating_of(category, item) }</code>
         </li>
       
-        <li class="covered" data-hits="56" data-linenumber="45">
-          <span class="hits">56</span>
+        <li class="never" data-hits="" data-linenumber="46">
           
-          <code class="ruby">    ratings_for_brewery = ratings.select{|x| x.beer.brewery == brewery}</code>
-        </li>
-      
-        <li class="covered" data-hits="35" data-linenumber="46">
-          <span class="hits">35</span>
           
-          <code class="ruby">    ratings_for_brewery.map(&amp;:score).inject{ |sum, el| sum + el }.to_f / ratings_for_brewery.size</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="covered" data-hits="21" data-linenumber="48">
+          <span class="hits">21</span>
+          
+          <code class="ruby">      category_ratings.sort_by { |item| item[:rating] }.last[:item]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
-          <code class="ruby">  def get_average_for_style style</code>
+          <code class="ruby">    def rated(category)</code>
         </li>
       
-        <li class="covered" data-hits="13" data-linenumber="50">
-          <span class="hits">13</span>
+        <li class="covered" data-hits="34" data-linenumber="52">
+          <span class="hits">34</span>
           
-          <code class="ruby">    return nil if (ratings.empty?)</code>
-        </li>
-      
-        <li class="covered" data-hits="56" data-linenumber="51">
-          <span class="hits">56</span>
-          
-          <code class="ruby">    ratings_for_style = ratings.select{|x| x.beer.style == style}</code>
-        </li>
-      
-        <li class="covered" data-hits="25" data-linenumber="52">
-          <span class="hits">25</span>
-          
-          <code class="ruby">    ratings_for_style.map(&amp;:score).inject{ |sum, el| sum + el }.to_f / ratings_for_style.size</code>
+          <code class="ruby">      ratings.map{ |r| r.beer.send(category) }.uniq</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="53">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def rating_of(category, item)</code>
+        </li>
+      
+        <li class="covered" data-hits="13" data-linenumber="56">
+          <span class="hits">13</span>
+          
+          <code class="ruby">      ratings_of_item = ratings.select do |r|</code>
+        </li>
+      
+        <li class="covered" data-hits="43" data-linenumber="57">
+          <span class="hits">43</span>
+          
+          <code class="ruby">        r.beer.send(category) == item</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="13" data-linenumber="59">
+          <span class="hits">13</span>
+          
+          <code class="ruby">      ratings_of_item.map(&amp;:score).sum / ratings_of_item.count</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="62">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def favorite_brewery</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="63">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    favorite :brewery</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="66">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def favorite_style</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="67">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    favorite :style</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby">end</code>

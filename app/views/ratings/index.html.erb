@@ -34,13 +34,13 @@
           <% else %>
             <td>none</td>
           <% end %>
-          <% if not user.favourite_brewery.nil? %>
-            <td><%= link_to user.favourite_brewery.name, user.favourite_brewery %></td>
+          <% if not user.favorite_brewery.nil? %>
+            <td><%= link_to user.favorite_brewery.name, user.favorite_brewery %></td>
           <% else %>
             <td>none</td>
           <% end %>
-          <% if not user.favourite_style.nil? %>
-            <td><%= link_to user.favourite_style.name, user.favourite_style %></td>
+          <% if not user.favorite_style.nil? %>
+            <td><%= link_to user.favorite_style.name, user.favorite_style %></td>
           <% else %>
             <td>none</td>
           <% end %>
