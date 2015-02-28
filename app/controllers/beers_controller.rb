@@ -1,13 +1,40 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
   before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
-  before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :ensure_that_signed_in, except: [:index, :show, :list, :nglist]
   before_action :ensure_that_admin, only: [:destroy]
 
   # GET /beers
   # GET /beers.json
   def index
     @beers = Beer.all
+
+    order = params[:order] || 'name'
+    reverse = session[:reverse] || false
+
+    @beers = case order
+    when 'name' then
+      if reverse then Beer.order(:name).reverse
+      else Beer.order(:name)
+      end
+    when 'brewery' then
+      if reverse then Beer.includes(:brewery).order("breweries.name").reverse
+      else Beer.includes(:brewery).order("breweries.name")
+      end
+
+    when 'style' then
+      if reverse then Beer.includes(:style).order("styles.name").reverse
+      else Beer.includes(:style).order("styles.name")
+      end
+    end
+
+    session[:reverse] = (not reverse)
+  end
+
+  def list
+  end
+  
+  def nglist
   end
 
   # GET /beers/1
@@ -24,8 +51,9 @@ class BeersController < ApplicationController
 
   # GET /beers/1/edit
   def edit
-
   end
+
+
 
   # POST /beers
   # POST /beers.json
@@ -39,7 +67,6 @@ class BeersController < ApplicationController
         format.html { render :new }
         format.json { render json: @beer.errors, status: :unprocessable_entity }
       end
-
     end
   end
 
