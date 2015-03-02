@@ -47,7 +47,7 @@ describe "beerlist page" do
   it "after clicking on style it orders items by style", js:true do
     visit beerlist_path
 
-    click_button "Style"
+    click_link "Style"
 
     expect(find('table').find('tr:nth-child(2)')).to have_content "Lager"
     expect(find('table').find('tr:nth-child(3)')).to have_content "Rauchbier"
@@ -57,7 +57,7 @@ describe "beerlist page" do
   it "after clicking on brewery it orders items by brewery", js:true do
     visit beerlist_path
 
-    click_button "Brewery"
+    click_link "Brewery"
 
     expect(find('table').find('tr:nth-child(2)')).to have_content "Ayinger"
     expect(find('table').find('tr:nth-child(3)')).to have_content "Koff"

@@ -8,7 +8,7 @@ class RatingsController < ApplicationController
   end
 
   def create
-
+    expire_fragment('ratinglist')
     @rating = Rating.new params.require(:rating).permit(:score, :beer_id)
     if (not current_user.nil?)
       if @rating.save
@@ -25,6 +25,7 @@ class RatingsController < ApplicationController
   end
 
   def destroy
+    expire_fragment('ratinglist')
     rating = Rating.find params[:id]
     rating.delete if current_user == rating.user
     redirect_to :back

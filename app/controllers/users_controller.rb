@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.includes(:ratings).all
   end
 
   # GET /users/1
@@ -24,12 +24,13 @@ class UsersController < ApplicationController
   def ban
     user = User.find_by id:params[:id]
     user.update_attribute :banned, (not user.banned)
-    redirect_to :back, notice: "User's banned status changed to: #{user.banned?}"    
+    redirect_to :back, notice: "User's banned status changed to: #{user.banned?}"
   end
 
   # POST /users
   # POST /users.json
   def create
+    expire_fragment('userlist')
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    expire_fragment('userlist')
     respond_to do |format|
       if user_params[:username].nil? and @user == current_user and @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -60,6 +62,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    expire_fragment('userlist')
     @user.destroy if current_user == @user
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }

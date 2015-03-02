@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+
+<% cache 'brewerylist', skip_digest: true do %>
+
 <h1>Listing Active Breweries</h1>
 <p class="text-center"> Number of active breweries: <span class="badge"> <%= @active_breweries.count %> </span> </p>
 
@@ -20,3 +23,5 @@
   <% end %>
 </div>
 </div>
+
+<% end %>

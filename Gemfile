@@ -74,3 +74,5 @@ end
 ruby '2.2.0'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'rack-mini-profiler'
+gem 'omniauth-github'

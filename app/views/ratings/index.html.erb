@@ -1,4 +1,7 @@
 <h1>Rating Statistics</h1>
+
+<% cache 'ratinglist', skip_digest: true do %>
+
 <p class="text-center"> Number of ratings: <span class="badge"> <%= @ratings.count %> </span> </p>
 
 <h2 class="text-center">Best Beers</h2>
@@ -52,3 +55,4 @@
   </div>
 </div>
 <br>
+<% end %>

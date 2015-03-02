@@ -30,6 +30,8 @@
       <% else %>
     <li class="navbar-right"><%= button_to "Sign in", signin_path, :class => "btn btn-default navbar-btn", :method => :get %></li>
     <li class="navbar-right"><%= button_to "Sign up", signup_path, :class => "btn btn-default navbar-btn", :method => :get %></li>
+    <li class="navbar-right"><%= button_to "Sign in with Github", 'auth/github', :class => "btn btn-primary navbar-btn" %></li>
+
     <% end %>
   </ul>
 
