@@ -51,7 +51,9 @@
 
 <% end %>
 <br>
-<%= edit_and_destroy_buttons(@beer_club) %>
-<%= link_to 'Back', beer_clubs_path %>
+<div class="col-md-6 col-md-offset-3">
+  <%= edit_and_destroy_buttons(@beer_club) %>
+  <%= link_to 'Back', beer_clubs_path, :class => "btn btn-default" %>
+</div>
 </div>
 </div>

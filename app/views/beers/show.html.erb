@@ -1,37 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h1>
   <strong>Name:</strong>
   <%= @beer.name %>
-</p>
+</h1>
 
-<p>
+<h2 class="text-center">
   <strong>Style:</strong>
   <%= @beer.style.name %>
-</p>
 
-<p>
   <strong>Brewery:</strong>
   <%= @beer.brewery.name %>
-</p>
-<p>
+</h2>
+
+<h3 class="text-center">
        <% if @beer.ratings.empty? %>
-         This beer has not yet been rated!
+         <strong> This beer has not yet been rated!</strong>
         <% else %>
-         Beer has <%= pluralize @beer.ratings.count, 'rating', 'ratings' %>, average <%= round @beer.average_rating %>
+         <strong>Beer has <%= pluralize @beer.ratings.count, 'rating', 'ratings' %>, average <%= round @beer.average_rating %></strong>
         <% end %>
-</p>
+</h3>
 
 <% if current_user %>
 
-<h4>give a rating:</h4>
 
-<%= form_for(@rating) do |f| %>
-<%= f.hidden_field :beer_id %>
-score: <%= f.number_field :score %>
-<%= f.submit %>
-<% end %>
+
+<div class="col-md-6 col-md-offset-3">
+  <h4>give a rating:</h4>
+  <div class="input-group">
+  <%= form_for(@rating) do |f| %>
+    <%= f.hidden_field :beer_id %>
+    <%= f.number_field :score, :class => "form-control" %>
+    <%= f.submit 'Rate!', :class => "btn btn-default" %>
+  <% end %>
+</div>
 <br>
-<%= edit_and_destroy_buttons(@beer) %>
+</div>
+<div class="col-md-6 col-md-offset-3">
+  <%= edit_and_destroy_buttons(@beer) %>
+  <%= link_to 'Back', beers_path, :class => "btn btn-default"  %>
+</div>
 <% end %>
-<%= link_to 'Back', beers_path %>
