@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
 
   def create_oauth
     nick = env["omniauth.auth"].info.nickname
-    byebug
     if ((User.find_by username:nick).nil?) then
       pass = ((0...8).map { (65 + rand(26)).chr }.join) + 123.to_s
       user = User.create(username:nick, password:pass, password_confirmation:pass)
@@ -34,7 +33,6 @@ class SessionsController < ApplicationController
       redirect_to user_path(user), notice: "Thanks for logging in with Github"
     else
       user = (User.find_by username:nick)
-      byebug
       session[:user_id] = user.id
       redirect_to user_path(user), notice: "Welcome back!"
     end
